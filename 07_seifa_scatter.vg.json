@@ -1,0 +1,140 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": { "signal": "'Socioeconomic Lens — SEIFA (IRSD) vs CDR (' + yearSel + ')'" },
+    "subtitle": "Lower IRSD indicates greater disadvantage; bubble size represents population",
+    "anchor": "start",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "offset": 8
+  },
+  "width": 800,
+  "height": 520,
+  "params": [
+    {
+      "name": "yearSel",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2014,
+        "max": 2023,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
+  ],
+  "data": {
+    "url": "data/AUS_Deaths_ByState_Age_2014_2023.csv",
+    "format": { "type": "csv", "parse": { "Year": "number", "Deaths": "number" } }
+  },
+  "transform": [
+    { "calculate": "trim(datum.Age_group)", "as": "Age_group" },
+    { "filter": "datum.Age_group == 'All persons' && datum.Year == 2023" },
+    { "aggregate": [{ "op": "sum", "field": "Deaths", "as": "Deaths" }], "groupby": ["Region"] },
+    {
+      "calculate": "datum.Region == 'New South Wales' ? 'NSW' : datum.Region == 'Victoria' ? 'VIC' : datum.Region == 'Queensland' ? 'QLD' : datum.Region == 'South Australia' ? 'SA' : datum.Region == 'Western Australia' ? 'WA' : datum.Region == 'Tasmania' ? 'TAS' : datum.Region == 'Northern Territory' ? 'NT' : 'ACT'",
+      "as": "StateCode"
+    },
+    {
+      "lookup": "Region",
+      "from": {
+        "data": {
+          "url": "data/AUS_Estimated_Resident_Population.csv",
+          "format": { "type": "csv", "parse": { "OVALUE": "number" } }
+        },
+        "key": "Region",
+        "fields": ["OVALUE"],
+        "transform": [
+          { "filter": "datum.Sex == 'Persons'" },
+          { "filter": "indexof(datum.TIME_PERIOD, '-Q2') > -1" },
+          { "calculate": "toNumber(substring(datum.TIME_PERIOD,0,4))", "as": "Year" },
+          { "filter": "datum.Year == 2023" },
+          { "aggregate": [{ "op": "sum", "field": "OVALUE", "as": "OVALUE" }], "groupby": ["Region"] }
+        ]
+      },
+      "as": "ERP"
+    },
+    {
+      "lookup": "StateCode",
+      "from": {
+        "data": { "url": "data/AUS_SEIFA_ByState_2021.csv" },
+        "key": "State",
+        "fields": ["Avg_IRSD"]
+      }
+    },
+    { "calculate": "datum.Deaths / datum.ERP * 100000", "as": "CDR" }
+  ],
+  "layer": [
+    {
+      "mark": { "type": "circle", "opacity": 0.85 },
+      "encoding": {
+        "x": {
+          "field": "Avg_IRSD",
+          "type": "quantitative",
+          "scale": { "zero": false },
+          "axis": {
+            "title": "SEIFA IRSD (lower = more disadvantage)",
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+        "y": {
+          "field": "CDR",
+          "type": "quantitative",
+          "scale": { "zero": false },
+          "axis": {
+            "title": "Crude Death Rate (per 100,000)",
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+        "size": {
+          "field": "ERP",
+          "type": "quantitative",
+          "scale": { "type": "sqrt", "range": [200, 1800] },
+          "legend": {
+            "title": "Population",
+            "format": "~s",
+            "orient": "right",
+            "titleFontSize": 11,
+            "labelFontSize": 10
+          }
+        },
+        "color": {
+          "field": "StateCode",
+          "type": "nominal",
+          "scale": {
+            "domain": ["NSW", "VIC", "QLD", "SA", "WA", "TAS", "NT", "ACT"],
+            "range": ["#2563eb", "#dc2626", "#16a34a", "#ca8a04", "#9333ea", "#0891b2", "#ea580c", "#ec4899"]
+          },
+          "legend": {
+            "title": "State/Territory",
+            "orient": "right",
+            "columns": 4,
+            "titleFontSize": 11,
+            "labelFontSize": 10,
+            "symbolSize": 120
+          }
+        },
+        "tooltip": [
+          { "field": "Region", "title": "State/Territory" },
+          { "field": "Avg_IRSD", "type": "quantitative", "format": ".1f", "title": "IRSD" },
+          { "field": "CDR", "type": "quantitative", "format": ".1f", "title": "CDR (per 100k)" },
+          { "field": "Deaths", "type": "quantitative", "format": ",", "title": "Deaths (2023)" },
+          { "field": "ERP", "type": "quantitative", "format": ",", "title": "Population" }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "axis": { "gridOpacity": 0.15 },
+    "title": {
+      "anchor": "start",
+      "offset": 5,
+      "subtitleColor": "#666",
+      "subtitleFontSize": 12,
+      "subtitlePadding": 3
+    }
+  }
+}

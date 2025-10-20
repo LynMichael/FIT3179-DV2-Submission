@@ -1,0 +1,171 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": { "signal": "'Ranking — States in ' + yearSel" },
+    "subtitle": { "signal": "'Age group: ' + ageSel + ' · Toggle metric below to compare'" },
+    "anchor": "start",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "offset": 8
+  },
+  "width": 800,
+  "height": 520,
+  
+  "params": [
+    {
+      "name": "yearSel",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2014,
+        "max": 2023,
+        "step": 1,
+        "name": "Year: "
+      }
+    },
+    { "name": "ageSel", "value": "All persons" },
+    { "name": "stateSel", "value": null },
+    {
+      "name": "metricSel",
+      "value": "Deaths",
+      "bind": {
+        "input": "radio",
+        "options": ["Deaths", "CDR"],
+        "name": "Metric: "
+      }
+    }
+  ],
+  
+  "data": {
+    "url": "data/AUS_Deaths_ByState_Age_2014_2023.csv",
+    "format": { "type": "csv", "parse": { "Year": "number", "Deaths": "number" } }
+  },
+  
+  "transform": [
+    { "calculate": "trim(datum.Age_group)", "as": "Age_group" },
+    { "filter": "datum.Age_group == ageSel && datum.Year == yearSel" },
+    { "aggregate": [{ "op": "sum", "field": "Deaths", "as": "Deaths" }], "groupby": ["Region"] },
+    {
+      "lookup": "Region",
+      "from": {
+        "data": {
+          "url": "data/AUS_Estimated_Resident_Population.csv",
+          "format": { "type": "csv", "parse": { "OVALUE": "number" } }
+        },
+        "key": "Region",
+        "fields": ["OVALUE"],
+        "transform": [
+          { "filter": "datum.Sex == 'Persons'" },
+          { "filter": "indexof(datum.TIME_PERIOD, '-Q2') > -1" },
+          { "calculate": "toNumber(substring(datum.TIME_PERIOD, 0, 4))", "as": "Year" },
+          { "filter": "datum.Year == yearSel" },
+          { "aggregate": [{ "op": "sum", "field": "OVALUE", "as": "ERP" }], "groupby": ["Region"] }
+        ]
+      },
+      "as": "ERP"
+    },
+    { "calculate": "datum.ERP ? (datum.Deaths / datum.ERP * 100000) : null", "as": "CDR" },
+    { "calculate": "metricSel == 'Deaths' ? datum.Deaths : datum.CDR", "as": "Value" },
+    { "calculate": "metricSel == 'Deaths' ? 'Deaths' : 'CDR (per 100k)'", "as": "MetricLabel" },
+    { "joinaggregate": [{ "op": "mean", "field": "CDR", "as": "NationalCDR" }] },
+    { "calculate": "stateSel ? (datum.Region == stateSel ? 1 : 0.5) : 1", "as": "Opacity" }
+  ],
+  
+  "layer": [
+    {
+      "mark": { "type": "bar", "cursor": "pointer" },
+      "encoding": {
+        "x": {
+          "field": "Region",
+          "type": "nominal",
+          "sort": { "field": "Value", "order": "descending" },
+          "axis": {
+            "title": null,
+            "labelAngle": -45,
+            "labelAlign": "right",
+            "labelFontSize": 11
+          }
+        },
+        "y": {
+          "field": "Value",
+          "type": "quantitative",
+          "axis": {
+            "title": { "signal": "metricSel == 'Deaths' ? 'Number of Deaths' : 'Crude Death Rate (per 100,000)'" },
+            "format": "~s",
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "stateSel && datum.Region == stateSel",
+            "value": "#2563eb"
+          },
+          "value": "#60a5fa"
+        },
+        "opacity": {
+          "field": "Opacity",
+          "type": "quantitative",
+          "legend": null
+        },
+        "tooltip": [
+          { "field": "Region", "title": "State/Territory" },
+          { "field": "Deaths", "type": "quantitative", "format": ",", "title": "Deaths" },
+          { "field": "ERP", "type": "quantitative", "format": ",", "title": "Population (ERP)" },
+          { "field": "CDR", "type": "quantitative", "format": ".1f", "title": "CDR (per 100k)" },
+          { "expr": "yearSel", "title": "Year" },
+          { "expr": "ageSel", "title": "Age group" }
+        ]
+      }
+    },
+    {
+      "transform": [
+        { "filter": "metricSel == 'CDR'" }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeDash": [6, 4],
+        "color": "#dc2626",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": { "field": "NationalCDR", "type": "quantitative" },
+        "tooltip": [
+          { "field": "NationalCDR", "type": "quantitative", "format": ".1f", "title": "National Average CDR" }
+        ]
+      }
+    },
+    {
+      "transform": [
+        { "filter": "metricSel == 'CDR'" },
+        { "aggregate": [{ "op": "max", "field": "NationalCDR", "as": "NationalCDR" }] }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -5,
+        "dy": -5,
+        "fontSize": 11,
+        "color": "#dc2626",
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": { "value": 695 },
+        "y": { "field": "NationalCDR", "type": "quantitative" },
+        "text": { "field": "NationalCDR", "type": "quantitative", "format": ".1f" }
+      }
+    }
+  ],
+  
+  "config": {
+    "view": { "stroke": null },
+    "axis": { "gridOpacity": 0.3 },
+    "title": {
+      "anchor": "start",
+      "offset": 5,
+      "subtitleColor": "#666",
+      "subtitleFontSize": 12,
+      "subtitlePadding": 3
+    }
+  }
+}

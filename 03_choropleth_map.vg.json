@@ -1,0 +1,100 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": { "signal": "'Deaths by State in Australia — ' + yearSel + ' · ' + ageSel" },
+    "subtitle": {
+      "signal": "'Year: ' + yearSel + ' · Age group: ' + ageSel + ' · Source: ABS, Deaths Australia (2014–2023)'"
+    },
+    "anchor": "start",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "offset": 8
+  },
+
+  "width": 800,
+  "height": 520,
+  "projection": { "type": "equirectangular", "center": [134, -27], "scale": 880 },
+
+  "data": {
+    "url": "data/AUS_Deaths_ByState_Age_2014_2023.csv",
+    "format": { "type": "csv", "parse": { "Year": "number", "Deaths": "number" } }
+  },
+
+  "params": [
+    {
+      "name": "yearSel",
+      "value": 2023,
+      "bind": { "input": "range", "min": 2014, "max": 2023, "step": 1, "name": "Year: " }
+    },
+    {
+      "name": "ageSel",
+      "value": "All persons",
+      "bind": {
+        "input": "select",
+        "name": "Age group: ",
+        "options": [
+          "All persons","Under 1 year","1-14 years","15-24 years","25-34 years",
+          "35-44 years","45-54 years","55-64 years","65-74 years","75-84 years","85 years and over"
+        ]
+      }
+    }
+  ],
+
+  "transform": [
+    { "filter": "datum.Year == yearSel && datum.Age_group == ageSel" },
+    { "aggregate": [{ "op": "sum", "field": "Deaths", "as": "Deaths" }], "groupby": ["Region"] },
+    {
+      "lookup": "Region",
+      "from": {
+        "data": {
+          "url": "js/aus_states.json",
+          "format": { "type": "topojson", "feature": "STE_2021_AUST_GDA2020" }
+        },
+        "key": "properties.STE_NAME21"
+      },
+      "as": "geo"
+    },
+    { "joinaggregate": [{ "op": "sum", "field": "Deaths", "as": "NatTotal" }] },
+    { "calculate": "datum.Deaths / datum.NatTotal", "as": "Share" },
+    { "window": [{ "op": "rank", "as": "Rank" }], "sort": [{ "field": "Deaths", "order": "descending" }] }
+  ],
+
+  "mark": { "type": "geoshape", "stroke": "white" },
+
+  "encoding": {
+    "shape": { "field": "geo", "type": "geojson" },
+    "color": {
+      "field": "Deaths",
+      "type": "quantitative",
+      "title": "Deaths",
+      "scale": { "scheme": "blues", "nice": false },
+      "legend": {
+        "labelExpr": "format(datum.value, ',')",
+        "tickCount": 6,
+        "labelFontSize": 12,
+        "titleFontSize": 12
+      }
+    },
+    "tooltip": [
+      { "field": "Region", "title": "State/Territory" },
+      { "field": "Deaths", "type": "quantitative", "format": ",", "title": "Deaths" },
+      { "field": "Share", "type": "quantitative", "format": ".1%", "title": "Share of national" },
+      { "field": "Rank", "type": "quantitative", "title": "Rank (by deaths)" },
+      { "expr": "yearSel", "title": "Year" },
+      { "expr": "ageSel", "title": "Age group" }
+    ]
+  },
+
+  "config": {
+    "view": { "stroke": null },
+    "legend": { "labelFontSize": 12, "titleFontSize": 12 },
+    "title": {
+      "anchor": "start",
+      "offset": 8,
+      "subtitleColor": "#555",
+      "subtitleFontSize": 12,
+      "subtitlePadding": 2
+    }
+  }
+}

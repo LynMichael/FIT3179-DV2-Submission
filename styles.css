@@ -1,0 +1,129 @@
+/* ================================
+   Yinuo DV2 — styles.css (final)
+   Clean, readable, accessible, responsive
+   ================================ */
+
+/* ===== CSS Variables (theme) ===== */
+:root{
+  --container: 1040px;
+  --pad: 20px;
+
+  --text: #0f172a;        /* slate-900 */
+  --muted: #64748b;       /* slate-500 */
+  --border: #e2e8f0;      /* slate-200 */
+  --bg: #ffffff;
+
+  --brand: #2563eb;       /* blue-600 */
+  --accent: #10b981;      /* emerald-500 */
+  --warn: #ef4444;        /* red-500 */
+
+  --radius: 12px;
+  --shadow: 0 1px 2px rgba(2, 6, 23, .04), 0 8px 24px rgba(2, 6, 23, .06);
+}
+
+html{box-sizing:border-box;scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%}
+
+body{
+  margin:0;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+  font-size:16px;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ===== Layout ===== */
+.container{max-width:var(--container);padding:0 var(--pad);margin:0 auto}
+.section{margin:28px 0}
+hr{border:none;border-top:1px solid var(--border);margin:20px 0}
+
+/* ===== Typography ===== */
+h1{font-size:32px;margin:26px 0 12px;font-weight:800;letter-spacing:.2px}
+h2{font-size:22px;margin:18px 0 8px;font-weight:700}
+h3{font-size:18px;margin:14px 0 6px;font-weight:600}
+p{margin:10px 0}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.small{font-size:12px;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ===== Figures / Visual blocks ===== */
+.figure{
+  margin:28px 0;
+  padding:16px 0 10px;
+  border-top:1px solid var(--border);
+}
+.fig-title{font-weight:800;margin:6px 0 8px}
+.fig-sub{color:var(--muted);margin:2px 0 10px}
+.fig-note{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* Vega-Lite containers */
+.vis{width:100%;overflow:visible}
+.vega-embed{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:8px}
+.vega-embed .vega-actions{display:none} /* hide "Open in Vega Editor" */
+
+/* Small multiples grid (for per-state charts) */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+
+/* ===== Controls ===== */
+.controls{
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+  margin:10px 0 12px;
+}
+.controls label{font-size:14px;color:#334155}
+.controls input[type="range"]{width:240px}
+.controls select,.controls input[type="text"],.controls button{
+  height:34px;padding:4px 10px;border:1px solid var(--border);border-radius:8px;
+  background:#fff;font-size:14px
+}
+.controls button{
+  cursor:pointer;background:var(--brand);color:#fff;border-color:transparent;
+  box-shadow:var(--shadow);transition:filter .15s ease
+}
+.controls button:hover{filter:brightness(.96)}
+.controls .hint{font-size:12px;color:var(--muted)}
+
+/* Inline badges / callouts */
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;background:#f1f5f9;color:#334155}
+.callout{
+  border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:10px;padding:10px 12px;background:#fafcff;margin:12px 0
+}
+
+/* ===== Tables (if needed for data notes) ===== */
+.table{width:100%;border-collapse:collapse;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.table th,.table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+.table th{background:#f8fafc;font-weight:700}
+
+/* ===== Footer ===== */
+footer{margin:28px 0 40px;color:var(--muted);font-size:13px}
+footer a{color:inherit;text-decoration:underline}
+
+/* ===== Accessibility ===== */
+a:focus,button:focus,select:focus,input:focus{
+  outline:2px solid #38bdf8;outline-offset:2px;border-radius:8px
+}
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+/* ===== Utilities ===== */
+.center{text-align:center}
+.mt-0{margin-top:0}.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}
+.mb-0{margin-bottom:0}.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}
+
+/* ===== Mobile tweaks ===== */
+@media (max-width: 900px){
+  :root{--container:100%;--pad:16px}
+  h1{font-size:26px}
+  .grid{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+  .controls input[type="range"]{width:180px}
+  .vega-embed{padding:6px}
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 520,
+  "params": [
+    { "name": "yearSel", "value": 2023 },
+    { "name": "ageSel", "value": "All persons" }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/AUS_Deaths_ByState_Age_2014_2023.csv",
+        "format": { "type": "csv", "parse": { "Year": "number", "Deaths": "number" } }
+      },
+      "transform": [
+        { "calculate": "trim(datum.Age_group)", "as": "Age_group" },
+        { "filter": "datum.Age_group == ageSel" },
+        { "aggregate": [{ "op": "sum", "field": "Deaths", "as": "Deaths" }], "groupby": ["Year"] },
+        { "joinaggregate": [{ "op": "min", "field": "Deaths", "as": "Deaths_min" }, { "op": "max", "field": "Deaths", "as": "Deaths_max" }] },
+        { "calculate": "(datum.Deaths - datum.Deaths_min) / (datum.Deaths_max - datum.Deaths_min)", "as": "Deaths_norm" },
+        { "calculate": "'Deaths (normalized)'", "as": "Series" }
+      ],
+      "mark": { "type": "line", "point": true },
+      "encoding": {
+        "x": { "field": "Year", "type": "quantitative", "axis": { "title": "Year", "tickMinStep": 1, "format": "d" } },
+        "y": { "field": "Deaths_norm", "type": "quantitative", "title": "Normalized value (0–1)", "axis": { "tickCount": 6, "format": ".1f" } },
+        "color": {
+          "field": "Series",
+          "type": "nominal",
+          "scale": { "domain": ["Deaths (normalized)", "Population (normalized)"], "range": ["#2563eb", "#f59e0b"] },
+          "legend": { "orient": "top", "title": null }
+        },
+        "tooltip": [
+          { "field": "Year", "type": "quantitative" },
+          { "field": "Deaths", "type": "quantitative", "format": ",", "title": "Deaths Number" },
+          { "field": "Deaths_norm", "type": "quantitative", "format": ".2f", "title": "Deaths Normalized" }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/AUS_Estimated_Resident_Population.csv",
+        "format": { "type": "csv", "parse": { "OVALUE": "number" } }
+      },
+      "transform": [
+        { "filter": "datum.Sex == 'Persons'" },
+        { "filter": "indexof(datum.TIME_PERIOD, '-Q2') > -1" },
+        { "calculate": "toNumber(substring(datum.TIME_PERIOD,0,4))", "as": "Year" },
+        { "aggregate": [{ "op": "sum", "field": "OVALUE", "as": "ERP" }], "groupby": ["Year"] },
+        { "joinaggregate": [{ "op": "min", "field": "ERP", "as": "ERP_min" }, { "op": "max", "field": "ERP", "as": "ERP_max" }] },
+        { "calculate": "(datum.ERP - datum.ERP_min) / (datum.ERP_max - datum.ERP_min)", "as": "ERP_norm" },
+        { "calculate": "'Population (normalized)'", "as": "Series" }
+      ],
+      "mark": { "type": "line", "point": true },
+      "encoding": {
+        "x": { "field": "Year", "type": "quantitative", "axis": { "title": "Year", "tickMinStep": 1, "format": "d" } },
+        "y": { "field": "ERP_norm", "type": "quantitative" },
+        "color": {
+          "field": "Series",
+          "type": "nominal",
+          "scale": { "domain": ["Deaths (normalized)", "Population (normalized)"], "range": ["#2563eb", "#f59e0b"] },
+          "legend": null
+        },
+        "tooltip": [
+          { "field": "Year", "type": "quantitative" },
+          { "field": "ERP", "type": "quantitative", "format": ",", "title": "Population Number" },
+          { "field": "ERP_norm", "type": "quantitative", "format": ".2f", "title": "Population Normalized" }
+        ]
+      }
+    },
+    {
+      "transform": [ { "calculate": "yearSel", "as": "xYear" } ],
+      "mark": { "type": "rule", "strokeDash": [4, 4], "color": "#94a3b8" },
+      "encoding": { "x": { "field": "xYear", "type": "quantitative", "title": null } }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "legend": { "labelFontSize": 12, "titleFontSize": 12 },
+    "axis": { "labelFontSize": 12, "titleFontSize": 12 }
+  }
+}

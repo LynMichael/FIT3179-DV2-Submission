@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Health Gaps in Australia — DV2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="All-cause mortality across Australian states/territories (2014–2023). Vega-Lite visualisations with map, trends, age structure, and socioeconomic lens." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <a href="#main" class="sr-only">Skip to main content</a>
+
+  <main id="main" class="container" role="main">
+    <header class="section" role="region" aria-labelledby="page-title">
+      <h1 id="page-title">Health Gaps in Australia: 2014–2023</h1>
+      <p>Australia's health crisis isn't evenly distributed. This visualization reveals how geography, age, and socioeconomic disadvantage combine to create deadly gaps in life expectancy. Discover where people die at higher rates, who's most vulnerable, and why policy intervention is critical.</p>
+
+      <nav aria-label="Sections" class="mt-12">
+        <span class="badge"><a href="#s1">Overview</a></span>
+        <span class="badge"><a href="#s2">State Trends</a></span>
+        <span class="badge"><a href="#s3">Map</a></span>
+        <span class="badge"><a href="#s4">SEIFA vs CDR</a></span>
+        <span class="badge"><a href="#s5">Deviation</a></span>
+        <span class="badge"><a href="#s6">Age Structure</a></span>
+        <span class="badge"><a href="#s7">Age × Year</a></span>
+        <span class="badge"><a href="#s8">Ranking</a></span>
+      </nav>
+    </header>
+
+    <!-- OPENING: Problem Statement -->
+    <section class="section figure" id="s1" role="region" aria-labelledby="t1">
+      <div id="t1" class="fig-title">National Overview — Deaths vs Population (normalized)</div>
+      <div class="fig-sub small">2014–2023; both metrics normalized to 0–1 scale; hover to inspect a year.</div>
+      <div id="vis1" class="vis" aria-label="National overview line chart"></div>
+
+      <div class="callout">
+        <p><strong>What we see.</strong> Deaths in Australia jumped dramatically after 2021, rising much faster than population growth. By 2022, the gap between deaths (blue) and population (orange) reached its widest point—a stark reversal from their parallel trajectories in earlier years.</p>
+        <p><strong>Why it matters.</strong> This signals more than natural aging; it reflects a significant health crisis. The post-pandemic surge—combined with healthcare system strain and emerging inequities—pushed mortality to new highs. By 2023, deaths are declining, but remain elevated.</p>
+        <p><strong>Next.</strong> But is this crisis evenly distributed? Which states are most affected? The following sections reveal where Australia's health gaps are deepest.</p>
+      </div>
+
+      <div class="fig-note">total number; CDR: per 100,000 population. ERP (Q2) represents the mid-year population (as of June each year) used by ABS to calculate annual crude death rates.</div>
+    </section>
+
+    <!-- COMPLICATION: Geographic Disparities Emerge -->
+    <section class="section figure" id="s2" role="region" aria-labelledby="t2">
+      <div id="t2" class="fig-title">State Trends — Deaths Growth by State (YoY)</div>
+      <div class="fig-sub small">2014–2023 · Year-on-year deaths growth rate (%) by state/territory for the selected age group</div>
+      <div id="vis2" class="vis" aria-label="State year-on-year growth rates"></div>
+
+      <div class="callout">
+        <p><strong>What we see.</strong> The 2021–2022 surge wasn't uniform across Australia. Tasmania and Northern Territory experienced extreme volatility (±20% year-on-year swings), while NSW and Victoria remained relatively stable. By 2023, most states show negative growth—suggesting stabilisation.</p>
+        <p><strong>Why it matters.</strong> Geographic disparity reveals different health vulnerabilities. States with wilder swings likely have less resilient healthcare infrastructure or more vulnerable populations. Stability in large cities can mask underlying regional crises.</p>
+        <p><strong>Next.</strong> Which states are actually performing worst when we adjust for population? The map and socioeconomic analysis reveal the answer.</p>
+      </div>
+
+      <div class="fig-note">YoY growth = (Deaths<sub>year</sub> − Deaths<sub>year−1</sub>) / Deaths<sub>year−1</sub>. Dashed line marks selected year; hover over any point for details.</div>
+    </section>
+
+    <!-- Geographic Visualization -->
+    <section class="section figure" id="s3" role="region" aria-labelledby="t3">
+      <div id="vis3" class="vis" aria-label="Choropleth map of deaths"></div>
+  
+      <div class="callout">
+        <p><strong>What we see.</strong> NSW and Victoria show the darkest blue—but that reflects population size, not health performance. When viewed in absolute terms, populous states naturally account for the most deaths.</p>
+        <p><strong>Why it matters.</strong> This visual is deceptive. Absolute death counts are driven by demography, not health equity. To understand true health gaps, we must adjust for population and examine socioeconomic patterns.</p>
+        <p><strong>Next.</strong> The real story emerges when we examine socioeconomic disadvantage—showing which communities face the highest mortality risks.</p>
+      </div>
+  
+      <div class="fig-note">Color intensity represents total deaths. Click a state to filter subsequent visualizations. Data: ABS Deaths Australia (2014–2023).</div>
+    </section>
+
+    <!-- REVELATION: The Root Cause -->
+    <section class="section figure" id="s4" role="region" aria-labelledby="t4">
+      
+      <div id="vis7" class="vis" aria-label="SEIFA vs CDR scatterplot"></div>
+
+      <div class="callout">
+        <p><strong>What we see.</strong> A clear and troubling pattern emerges: states with LOWER socioeconomic status (left side) consistently show HIGHER death rates (higher on Y-axis). Tasmania, South Australia, and NSW sit in the danger zone—high disadvantage paired with high mortality.</p>
+        <p><strong>Why it matters.</strong> This is the smoking gun of Australia's health equity crisis. Socioeconomic disadvantage is DIRECTLY linked to death rates. Vulnerable communities face barriers to healthcare, poorer nutrition, higher stress, and more chronic disease. They don't just suffer poverty—they literally die from it.</p>
+        <p><strong>Next.</strong> How large are these gaps? The next chart quantifies the difference between worst and best-performing states.</p>
+      </div>
+
+      <div class="fig-note">A light-fit or mean line can be added to guide interpretation. Bubble positions reveal the relationship between disadvantage and mortality.</div>
+    </section>
+
+    <!-- Quantify the Gap -->
+    <section class="section figure" id="s5" role="region" aria-labelledby="t5">
+      
+      <div id="vis8" class="vis" aria-label="Diverging bars of deviation from national CDR"></div>
+
+      <div class="callout">
+        <p><strong>What we see.</strong> When compared to the national average, the gaps are staggering. Tasmania's CDR is +495 per 100,000 above the national level—meaning Tasmanians die at rates 50% HIGHER than average. South Australia is +481 above. Meanwhile, Queensland and ACT perform better than average.</p>
+        <p><strong>Why it matters.</strong> If all Australian states performed as well as the best performers (Queensland), the nation would prevent thousands of deaths annually. This isn't marginal—it's a systemic health equity failure concentrated in specific regions.</p>
+        <p><strong>Next.</strong> Who is dying in these high-mortality states? Age composition reveals the answer.</p>
+      </div>
+
+      <div class="fig-note">Zero line denotes national CDR in the selected year; positive to the right, negative to the left.</div>
+    </section>
+
+    <!-- CONTEXT: Age Structure -->
+    <section class="section figure" id="s6" role="region" aria-labelledby="t6">
+    
+      <div id="vis5" class="vis" aria-label="Age composition bars"></div>
+
+      <div class="callout">
+        <p><strong>What we see.</strong> Deaths are massively concentrated in the elderly. Across Australia: 85+ years account for 42% of all deaths, 75–84 years account for 28%, and together they represent 70% of total deaths. Young and working-age Australians account for less than 10%.</p>
+        <p><strong>Why it matters.</strong> Australia's "health crisis" is fundamentally an AGING CRISIS. An aging population combined with regional healthcare inequality creates concentrated mortality in vulnerable elderly populations. This reveals both challenge and opportunity: targeted policies for elderly care in disadvantaged regions could prevent thousands of deaths.</p>
+        <p><strong>Next.</strong> Has this pattern always dominated, or is it growing? The heatmap reveals this long-term trend.</p>
+      </div>
+
+      <div class="fig-note">Switch between counts and shares to examine age distribution structure.</div>
+    </section>
+
+    <!-- Long-term Trend -->
+    <section class="section figure" id="s7" role="region" aria-labelledby="t7">
+      
+      <div id="vis6" class="vis" aria-label="Age by year heatmap"></div>
+
+      <div class="callout">
+        <p><strong>What we see.</strong> The heatmap shows a clear and deepening pattern: deaths among elderly (75+ years) grow darker over time, especially after 2019. By 2023, the elderly age bands are almost black—representing the vast majority of annual deaths.</p>
+        <p><strong>Why it matters.</strong> This is not a short-term phenomenon or temporary pandemic effect. It's a structural demographic shift. Australia's population is aging, and mortality is increasingly concentrated in elderly cohorts. This trend will persist for decades unless addressed through preventive healthcare and targeted investment in elderly care in disadvantaged communities.</p>
+        <p><strong>Next.</strong> Finally, let's rank states to identify which need intervention most urgently.</p>
+      </div>
+
+      <div class="fig-note">Consistent colour scale aids comparison across years. The darkening pattern reveals the long-term concentration of deaths in elderly age groups.</div>
+    </section>
+
+    <!-- OPTIONAL: Rankings for Deep Dive -->
+    <section class="section figure" id="s8" role="region" aria-labelledby="t8">
+      
+      <div id="vis4" class="vis" aria-label="Ranking bar chart"></div>
+
+      <div class="callout">
+        <p><strong>What we see.</strong> A clear ranking of states by total deaths and by death rate per capita. NSW and Victoria lead in absolute numbers (due to population), but Tasmania, South Australia, and NSW lead in per-capita mortality—the true measure of health performance.</p>
+        <p><strong>Why it matters.</strong> This ranking clarifies which states need immediate policy intervention. Switching from "Deaths" to "Death Rate per 100k" reveals that Australia's worst health outcomes are concentrated in small, disadvantaged states—places that deserve urgent healthcare investment.</p>
+        <p><strong>Actionable insight:</strong> Policy makers should prioritize Tasmania, South Australia, and parts of NSW for healthcare and aged care improvements.</p>
+      </div>
+
+      <div class="fig-note">Reference line indicates national average (for CDR mode). Toggle the metric dropdown to compare deaths versus standardized rates.</div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="section figure" id="conclusion" role="region">
+      <hr />
+      <h2>The Core Story</h2>
+      <p>Australia's health gaps are not random. They're concentrated, predictable, and preventable:</p>
+      <ul>
+        <li><strong>Geographic Gaps:</strong> Disadvantaged states (Tasmania, South Australia) have 50% higher death rates than better-performing regions.</li>
+        <li><strong>Socioeconomic Gaps:</strong> There's a direct link between regional poverty (SEIFA) and mortality. Vulnerable communities don't just suffer poverty—they die from it.</li>
+        <li><strong>Age Gaps:</strong> 70% of deaths occur in people over 75. Combined with regional inequality, this creates a crisis of elderly care in disadvantaged areas.</li>
+      </ul>
+      <p><strong>The implication:</strong> If Australia allocated resources to close these gaps—especially in elderly care in disadvantaged regions—thousands of preventable deaths could be avoided annually.</p>
+    </section>
+
+    <footer class="section">
+      <hr />
+      <p class="middle">
+        © 2025 Yinuo Luo. Data: ABS Deaths, Estimated Resident Population (Q2), SEIFA 2021. Text assistance: OpenAI ChatGPT (acknowledged).
+          Data link: https://www.abs.gov.au/statistics/people/population/deaths-australia, https://dataexplorer.abs.gov.au/      
+      </p>
+      <p class="small"><a href="#main">Back to top ↑</a></p>
+    </footer>
+  </main>
+
+  <script>
+    const specs = [
+      ['#vis1', 'js/01_national_trend.vg.json'],
+      ['#vis2', 'js/02_state_small_multiples.vg.json'],
+      ['#vis3', 'js/03_choropleth_map.vg.json'],
+      ['#vis7', 'js/07_seifa_scatter.vg.json'],
+      ['#vis8', 'js/08_delta_diverging.vg.json'],
+      ['#vis5', 'js/05_age_structure.vg.json'],
+      ['#vis6', 'js/06_age_year_heatmap.vg.json'],
+      ['#vis4', 'js/04_state_rank.vg.json']
+    ];
+
+    const views = {};
+
+    function safeEmbed(el, path) {
+      return fetch(path).then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      }).then(txt => {
+        const trimmed = txt.trim();
+        if (!trimmed || trimmed[0] !== '{') {
+          document.querySelector(el).innerHTML = '<p class="small">Coming soon…</p>';
+          return null;
+        }
+        return vegaEmbed(el, JSON.parse(trimmed), { actions: false });
+      }).then(res => {
+        if (res && res.view) views[el] = res.view;
+        return res;
+      }).catch(err => {
+        console.warn('Embed skipped:', path, err);
+        const node = document.querySelector(el);
+        if (node) node.innerHTML = '<p class="small">Coming soon…</p>';
+        return null;
+      });
+    }
+
+    function broadcastSignal(sourceView, name, value) {
+      Object.values(views).forEach(v => {
+        if (v !== sourceView) {
+          try { v.signal(name, value).run(); } catch (e) {}
+        }
+      });
+    }
+
+    function setupSync(mapView) {
+      ['yearSel', 'ageSel'].forEach(sig => {
+        try {
+          mapView.addSignalListener(sig, (_, val) => broadcastSignal(mapView, sig, val));
+        } catch (e) {}
+      });
+    }
+
+    (async function init() {
+      for (const [el, path] of specs) {
+        const res = await safeEmbed(el, path);
+        if (el === '#vis3' && res && res.view) setupSync(res.view);
+      }
+    })();
+  </script>
+</body>
+</html>

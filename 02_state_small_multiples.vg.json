@@ -1,0 +1,115 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "params": [
+    { "name": "yearSel", "value": 2023 },
+    { "name": "ageSel", "value": "All persons" }
+  ],
+  "data": {
+    "url": "data/AUS_Deaths_ByState_Age_2014_2023.csv",
+    "format": { "type": "csv", "parse": { "Year": "number", "Deaths": "number" } }
+  },
+  "transform": [
+    { "calculate": "trim(datum.Age_group)", "as": "Age_group" },
+    { "filter": "datum.Age_group == ageSel" },
+    { "aggregate": [{ "op": "sum", "field": "Deaths", "as": "Deaths" }], "groupby": ["Region", "Year"] },
+    { "window": [{ "op": "lag", "field": "Deaths", "as": "PrevDeaths" }], "groupby": ["Region"], "sort": [{ "field": "Year", "order": "ascending" }] },
+    { "filter": "datum.PrevDeaths != null && datum.PrevDeaths > 0" },
+    { "calculate": "(datum.Deaths - datum.PrevDeaths) / datum.PrevDeaths", "as": "Growth" },
+    {
+      "calculate": "datum.Region=='New South Wales'?1:datum.Region=='Victoria'?2:datum.Region=='Queensland'?3:datum.Region=='South Australia'?4:datum.Region=='Western Australia'?5:datum.Region=='Tasmania'?6:datum.Region=='Northern Territory'?7:8",
+      "as": "OrderNum"
+    },
+    { "calculate": "datum.OrderNum<=4 ? 'R1' : 'R2'", "as": "FacetRow" },
+    {
+      "calculate": "datum.OrderNum==1||datum.OrderNum==5 ? 'C1' : datum.OrderNum==2||datum.OrderNum==6 ? 'C2' : datum.OrderNum==3||datum.OrderNum==7 ? 'C3' : 'C4'",
+      "as": "FacetCol"
+    }
+  ],
+  "facet": {
+    "row": { "field": "FacetRow", "type": "nominal", "sort": ["R1", "R2"], "title": null },
+    "column": { "field": "FacetCol", "type": "nominal", "sort": ["C1", "C2", "C3", "C4"], "title": null }
+  },
+  "spec": {
+    "width": 220,
+    "height": 150,
+    "layer": [
+      {
+        "transform": [
+          { "aggregate": [{ "op": "max", "field": "OrderNum", "as": "OrderNum" }], "groupby": ["Region"] }
+        ],
+        "mark": { "type": "text", "align": "right", "baseline": "top", "fontSize": 12, "fontWeight": "bold" },
+        "encoding": { 
+          "text": { "field": "Region" },
+          "x": { "value": 215 },
+          "y": { "value": 5 }
+        }
+      },
+      {
+        "transform": [{ "calculate": "yearSel", "as": "xYear" }],
+        "mark": { "type": "rule", "strokeDash": [4, 4], "color": "#94a3b8" },
+        "encoding": {
+          "x": {
+            "field": "xYear",
+            "type": "ordinal",
+            "sort": ["2014","2015","2016","2017","2018","2019","2020","2021","2022","2023"]
+          }
+        }
+      },
+      {
+        "mark": { "type": "line", "strokeWidth": 2.2, "interpolate": "monotone", "color": "#2563eb", "point": true },
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "ordinal",
+            "sort": "ascending",
+            "axis": {
+              "title": null,
+              "values": [2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],
+              "labelAngle": -40,
+              "labelOverlap": false
+            }
+          },
+          "y": {
+            "field": "Growth",
+            "type": "quantitative",
+            "axis": { "title": "YoY growth", "format": "+.0%" }
+          },
+          "tooltip": [
+            { "field": "Region", "title": "State/Territory" },
+            { "field": "Year", "type": "quantitative", "format": "d" },
+            { "field": "Deaths", "type": "quantitative", "format": ",", "title": "Deaths" },
+            { "field": "PrevDeaths", "type": "quantitative", "format": ",", "title": "Prev year" },
+            { "field": "Growth", "type": "quantitative", "format": "+.1%", "title": "YoY growth" }
+          ]
+        }
+      },
+      {
+        "transform": [{ "filter": "datum.Year == yearSel" }],
+        "mark": { "type": "point", "filled": true, "size": 70, "color": "#2563eb" },
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "ordinal",
+            "sort": "ascending",
+            "axis": { "title": null }
+          },
+          "y": { "field": "Growth", "type": "quantitative" },
+          "tooltip": [
+            { "field": "Region", "title": "State/Territory" },
+            { "field": "Year", "type": "quantitative", "format": "d" },
+            { "field": "Deaths", "type": "quantitative", "format": ",", "title": "Deaths" },
+            { "field": "PrevDeaths", "type": "quantitative", "format": ",", "title": "Prev year" },
+            { "field": "Growth", "type": "quantitative", "format": "+.1%", "title": "YoY growth" }
+          ]
+        }
+      }
+    ]
+  },
+  "resolve": { "scale": { "y": "shared" } },
+  "config": {
+    "view": { "stroke": null },
+    "facet": { "spacing": 16 },
+    "header": { "labels": false },
+    "axis": { "labelFontSize": 11, "titleFontSize": 12, "gridOpacity": 0.22 }
+  }
+}

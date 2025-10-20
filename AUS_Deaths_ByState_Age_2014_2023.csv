@@ -1,0 +1,881 @@
+Age_group,Region,Year,Deaths
+Under 1 year,Australian Capital Territory,2014,14
+Under 1 year,Australian Capital Territory,2015,19
+Under 1 year,Australian Capital Territory,2016,23
+Under 1 year,Australian Capital Territory,2017,16
+Under 1 year,Australian Capital Territory,2018,17
+Under 1 year,Australian Capital Territory,2019,7
+Under 1 year,Australian Capital Territory,2020,14
+Under 1 year,Australian Capital Territory,2021,19
+Under 1 year,Australian Capital Territory,2022,19
+Under 1 year,Australian Capital Territory,2023,31
+1-14 years,Australian Capital Territory,2014,5
+1-14 years,Australian Capital Territory,2015,7
+1-14 years,Australian Capital Territory,2016,6
+1-14 years,Australian Capital Territory,2017,8
+1-14 years,Australian Capital Territory,2018,13
+1-14 years,Australian Capital Territory,2019,5
+1-14 years,Australian Capital Territory,2020,2
+1-14 years,Australian Capital Territory,2021,2
+1-14 years,Australian Capital Territory,2022,10
+1-14 years,Australian Capital Territory,2023,5
+15-24 years,Australian Capital Territory,2014,15
+15-24 years,Australian Capital Territory,2015,16
+15-24 years,Australian Capital Territory,2016,13
+15-24 years,Australian Capital Territory,2017,24
+15-24 years,Australian Capital Territory,2018,21
+15-24 years,Australian Capital Territory,2019,22
+15-24 years,Australian Capital Territory,2020,18
+15-24 years,Australian Capital Territory,2021,19
+15-24 years,Australian Capital Territory,2022,29
+15-24 years,Australian Capital Territory,2023,14
+25-34 years,Australian Capital Territory,2014,32
+25-34 years,Australian Capital Territory,2015,19
+25-34 years,Australian Capital Territory,2016,24
+25-34 years,Australian Capital Territory,2017,24
+25-34 years,Australian Capital Territory,2018,27
+25-34 years,Australian Capital Territory,2019,28
+25-34 years,Australian Capital Territory,2020,33
+25-34 years,Australian Capital Territory,2021,33
+25-34 years,Australian Capital Territory,2022,27
+25-34 years,Australian Capital Territory,2023,38
+35-44 years,Australian Capital Territory,2014,54
+35-44 years,Australian Capital Territory,2015,46
+35-44 years,Australian Capital Territory,2016,58
+35-44 years,Australian Capital Territory,2017,60
+35-44 years,Australian Capital Territory,2018,51
+35-44 years,Australian Capital Territory,2019,61
+35-44 years,Australian Capital Territory,2020,66
+35-44 years,Australian Capital Territory,2021,57
+35-44 years,Australian Capital Territory,2022,71
+35-44 years,Australian Capital Territory,2023,48
+45-54 years,Australian Capital Territory,2014,84
+45-54 years,Australian Capital Territory,2015,87
+45-54 years,Australian Capital Territory,2016,106
+45-54 years,Australian Capital Territory,2017,87
+45-54 years,Australian Capital Territory,2018,104
+45-54 years,Australian Capital Territory,2019,84
+45-54 years,Australian Capital Territory,2020,97
+45-54 years,Australian Capital Territory,2021,99
+45-54 years,Australian Capital Territory,2022,103
+45-54 years,Australian Capital Territory,2023,113
+55-64 years,Australian Capital Territory,2014,184
+55-64 years,Australian Capital Territory,2015,197
+55-64 years,Australian Capital Territory,2016,170
+55-64 years,Australian Capital Territory,2017,183
+55-64 years,Australian Capital Territory,2018,200
+55-64 years,Australian Capital Territory,2019,188
+55-64 years,Australian Capital Territory,2020,155
+55-64 years,Australian Capital Territory,2021,189
+55-64 years,Australian Capital Territory,2022,200
+55-64 years,Australian Capital Territory,2023,187
+65-74 years,Australian Capital Territory,2014,274
+65-74 years,Australian Capital Territory,2015,283
+65-74 years,Australian Capital Territory,2016,309
+65-74 years,Australian Capital Territory,2017,304
+65-74 years,Australian Capital Territory,2018,294
+65-74 years,Australian Capital Territory,2019,274
+65-74 years,Australian Capital Territory,2020,368
+65-74 years,Australian Capital Territory,2021,314
+65-74 years,Australian Capital Territory,2022,403
+65-74 years,Australian Capital Territory,2023,325
+75-84 years,Australian Capital Territory,2014,447
+75-84 years,Australian Capital Territory,2015,442
+75-84 years,Australian Capital Territory,2016,525
+75-84 years,Australian Capital Territory,2017,537
+75-84 years,Australian Capital Territory,2018,538
+75-84 years,Australian Capital Territory,2019,518
+75-84 years,Australian Capital Territory,2020,554
+75-84 years,Australian Capital Territory,2021,596
+75-84 years,Australian Capital Territory,2022,675
+75-84 years,Australian Capital Territory,2023,736
+85 years and over,Australian Capital Territory,2014,726
+85 years and over,Australian Capital Territory,2015,736
+85 years and over,Australian Capital Territory,2016,835
+85 years and over,Australian Capital Territory,2017,845
+85 years and over,Australian Capital Territory,2018,868
+85 years and over,Australian Capital Territory,2019,878
+85 years and over,Australian Capital Territory,2020,847
+85 years and over,Australian Capital Territory,2021,846
+85 years and over,Australian Capital Territory,2022,1057
+85 years and over,Australian Capital Territory,2023,969
+All persons,Australian Capital Territory,2014,1835
+All persons,Australian Capital Territory,2015,1852
+All persons,Australian Capital Territory,2016,2069
+All persons,Australian Capital Territory,2017,2088
+All persons,Australian Capital Territory,2018,2133
+All persons,Australian Capital Territory,2019,2065
+All persons,Australian Capital Territory,2020,2155
+All persons,Australian Capital Territory,2021,2176
+All persons,Australian Capital Territory,2022,2594
+All persons,Australian Capital Territory,2023,2466
+Under 1 year,New South Wales,2014,342
+Under 1 year,New South Wales,2015,307
+Under 1 year,New South Wales,2016,255
+Under 1 year,New South Wales,2017,324
+Under 1 year,New South Wales,2018,281
+Under 1 year,New South Wales,2019,341
+Under 1 year,New South Wales,2020,287
+Under 1 year,New South Wales,2021,320
+Under 1 year,New South Wales,2022,255
+Under 1 year,New South Wales,2023,241
+1-14 years,New South Wales,2014,133
+1-14 years,New South Wales,2015,136
+1-14 years,New South Wales,2016,148
+1-14 years,New South Wales,2017,138
+1-14 years,New South Wales,2018,141
+1-14 years,New South Wales,2019,126
+1-14 years,New South Wales,2020,125
+1-14 years,New South Wales,2021,122
+1-14 years,New South Wales,2022,138
+1-14 years,New South Wales,2023,124
+15-24 years,New South Wales,2014,334
+15-24 years,New South Wales,2015,311
+15-24 years,New South Wales,2016,335
+15-24 years,New South Wales,2017,364
+15-24 years,New South Wales,2018,348
+15-24 years,New South Wales,2019,372
+15-24 years,New South Wales,2020,342
+15-24 years,New South Wales,2021,326
+15-24 years,New South Wales,2022,321
+15-24 years,New South Wales,2023,307
+25-34 years,New South Wales,2014,521
+25-34 years,New South Wales,2015,547
+25-34 years,New South Wales,2016,568
+25-34 years,New South Wales,2017,547
+25-34 years,New South Wales,2018,526
+25-34 years,New South Wales,2019,578
+25-34 years,New South Wales,2020,556
+25-34 years,New South Wales,2021,548
+25-34 years,New South Wales,2022,553
+25-34 years,New South Wales,2023,529
+35-44 years,New South Wales,2014,1059
+35-44 years,New South Wales,2015,1028
+35-44 years,New South Wales,2016,942
+35-44 years,New South Wales,2017,1015
+35-44 years,New South Wales,2018,949
+35-44 years,New South Wales,2019,1015
+35-44 years,New South Wales,2020,916
+35-44 years,New South Wales,2021,914
+35-44 years,New South Wales,2022,1044
+35-44 years,New South Wales,2023,962
+45-54 years,New South Wales,2014,2310
+45-54 years,New South Wales,2015,2321
+45-54 years,New South Wales,2016,2249
+45-54 years,New South Wales,2017,2253
+45-54 years,New South Wales,2018,2040
+45-54 years,New South Wales,2019,2130
+45-54 years,New South Wales,2020,2111
+45-54 years,New South Wales,2021,2137
+45-54 years,New South Wales,2022,2199
+45-54 years,New South Wales,2023,2137
+55-64 years,New South Wales,2014,4526
+55-64 years,New South Wales,2015,4598
+55-64 years,New South Wales,2016,4590
+55-64 years,New South Wales,2017,4559
+55-64 years,New South Wales,2018,4666
+55-64 years,New South Wales,2019,4752
+55-64 years,New South Wales,2020,4650
+55-64 years,New South Wales,2021,4493
+55-64 years,New South Wales,2022,4933
+55-64 years,New South Wales,2023,4579
+65-74 years,New South Wales,2014,8089
+65-74 years,New South Wales,2015,8106
+65-74 years,New South Wales,2016,8289
+65-74 years,New South Wales,2017,8676
+65-74 years,New South Wales,2018,8415
+65-74 years,New South Wales,2019,8698
+65-74 years,New South Wales,2020,8516
+65-74 years,New South Wales,2021,8959
+65-74 years,New South Wales,2022,9606
+65-74 years,New South Wales,2023,9099
+75-84 years,New South Wales,2014,13914
+75-84 years,New South Wales,2015,13730
+75-84 years,New South Wales,2016,13812
+75-84 years,New South Wales,2017,14354
+75-84 years,New South Wales,2018,13529
+75-84 years,New South Wales,2019,14080
+75-84 years,New South Wales,2020,13983
+75-84 years,New South Wales,2021,14950
+75-84 years,New South Wales,2022,17035
+75-84 years,New South Wales,2023,16569
+85 years and over,New South Wales,2014,21164
+85 years and over,New South Wales,2015,21960
+85 years and over,New South Wales,2016,22086
+85 years and over,New South Wales,2017,23130
+85 years and over,New South Wales,2018,21892
+85 years and over,New South Wales,2019,22719
+85 years and over,New South Wales,2020,21802
+85 years and over,New South Wales,2021,23545
+85 years and over,New South Wales,2022,27022
+85 years and over,New South Wales,2023,24573
+All persons,New South Wales,2014,52396
+All persons,New South Wales,2015,53044
+All persons,New South Wales,2016,53275
+All persons,New South Wales,2017,55361
+All persons,New South Wales,2018,52787
+All persons,New South Wales,2019,54812
+All persons,New South Wales,2020,53290
+All persons,New South Wales,2021,56314
+All persons,New South Wales,2022,63106
+All persons,New South Wales,2023,59121
+Under 1 year,Northern Territory,2014,22
+Under 1 year,Northern Territory,2015,27
+Under 1 year,Northern Territory,2016,30
+Under 1 year,Northern Territory,2017,36
+Under 1 year,Northern Territory,2018,35
+Under 1 year,Northern Territory,2019,25
+Under 1 year,Northern Territory,2020,32
+Under 1 year,Northern Territory,2021,30
+Under 1 year,Northern Territory,2022,27
+Under 1 year,Northern Territory,2023,24
+1-14 years,Northern Territory,2014,18
+1-14 years,Northern Territory,2015,12
+1-14 years,Northern Territory,2016,10
+1-14 years,Northern Territory,2017,12
+1-14 years,Northern Territory,2018,7
+1-14 years,Northern Territory,2019,10
+1-14 years,Northern Territory,2020,13
+1-14 years,Northern Territory,2021,11
+1-14 years,Northern Territory,2022,11
+1-14 years,Northern Territory,2023,13
+15-24 years,Northern Territory,2014,41
+15-24 years,Northern Territory,2015,33
+15-24 years,Northern Territory,2016,19
+15-24 years,Northern Territory,2017,39
+15-24 years,Northern Territory,2018,37
+15-24 years,Northern Territory,2019,36
+15-24 years,Northern Territory,2020,33
+15-24 years,Northern Territory,2021,39
+15-24 years,Northern Territory,2022,43
+15-24 years,Northern Territory,2023,20
+25-34 years,Northern Territory,2014,57
+25-34 years,Northern Territory,2015,59
+25-34 years,Northern Territory,2016,47
+25-34 years,Northern Territory,2017,59
+25-34 years,Northern Territory,2018,53
+25-34 years,Northern Territory,2019,58
+25-34 years,Northern Territory,2020,45
+25-34 years,Northern Territory,2021,49
+25-34 years,Northern Territory,2022,58
+25-34 years,Northern Territory,2023,47
+35-44 years,Northern Territory,2014,92
+35-44 years,Northern Territory,2015,103
+35-44 years,Northern Territory,2016,68
+35-44 years,Northern Territory,2017,74
+35-44 years,Northern Territory,2018,75
+35-44 years,Northern Territory,2019,76
+35-44 years,Northern Territory,2020,59
+35-44 years,Northern Territory,2021,61
+35-44 years,Northern Territory,2022,92
+35-44 years,Northern Territory,2023,76
+45-54 years,Northern Territory,2014,167
+45-54 years,Northern Territory,2015,138
+45-54 years,Northern Territory,2016,150
+45-54 years,Northern Territory,2017,135
+45-54 years,Northern Territory,2018,151
+45-54 years,Northern Territory,2019,127
+45-54 years,Northern Territory,2020,131
+45-54 years,Northern Territory,2021,141
+45-54 years,Northern Territory,2022,149
+45-54 years,Northern Territory,2023,154
+55-64 years,Northern Territory,2014,222
+55-64 years,Northern Territory,2015,221
+55-64 years,Northern Territory,2016,180
+55-64 years,Northern Territory,2017,236
+55-64 years,Northern Territory,2018,215
+55-64 years,Northern Territory,2019,179
+55-64 years,Northern Territory,2020,187
+55-64 years,Northern Territory,2021,217
+55-64 years,Northern Territory,2022,246
+55-64 years,Northern Territory,2023,199
+65-74 years,Northern Territory,2014,243
+65-74 years,Northern Territory,2015,201
+65-74 years,Northern Territory,2016,249
+65-74 years,Northern Territory,2017,221
+65-74 years,Northern Territory,2018,225
+65-74 years,Northern Territory,2019,247
+65-74 years,Northern Territory,2020,287
+65-74 years,Northern Territory,2021,260
+65-74 years,Northern Territory,2022,282
+65-74 years,Northern Territory,2023,301
+75-84 years,Northern Territory,2014,176
+75-84 years,Northern Territory,2015,208
+75-84 years,Northern Territory,2016,200
+75-84 years,Northern Territory,2017,184
+75-84 years,Northern Territory,2018,233
+75-84 years,Northern Territory,2019,210
+75-84 years,Northern Territory,2020,224
+75-84 years,Northern Territory,2021,258
+75-84 years,Northern Territory,2022,277
+75-84 years,Northern Territory,2023,247
+85 years and over,Northern Territory,2014,111
+85 years and over,Northern Territory,2015,125
+85 years and over,Northern Territory,2016,105
+85 years and over,Northern Territory,2017,122
+85 years and over,Northern Territory,2018,133
+85 years and over,Northern Territory,2019,162
+85 years and over,Northern Territory,2020,136
+85 years and over,Northern Territory,2021,155
+85 years and over,Northern Territory,2022,188
+85 years and over,Northern Territory,2023,148
+All persons,Northern Territory,2014,1149
+All persons,Northern Territory,2015,1127
+All persons,Northern Territory,2016,1059
+All persons,Northern Territory,2017,1118
+All persons,Northern Territory,2018,1164
+All persons,Northern Territory,2019,1130
+All persons,Northern Territory,2020,1147
+All persons,Northern Territory,2021,1221
+All persons,Northern Territory,2022,1373
+All persons,Northern Territory,2023,1229
+Under 1 year,Queensland,2014,273
+Under 1 year,Queensland,2015,256
+Under 1 year,Queensland,2016,244
+Under 1 year,Queensland,2017,255
+Under 1 year,Queensland,2018,215
+Under 1 year,Queensland,2019,247
+Under 1 year,Queensland,2020,242
+Under 1 year,Queensland,2021,244
+Under 1 year,Queensland,2022,274
+Under 1 year,Queensland,2023,277
+1-14 years,Queensland,2014,101
+1-14 years,Queensland,2015,119
+1-14 years,Queensland,2016,104
+1-14 years,Queensland,2017,101
+1-14 years,Queensland,2018,87
+1-14 years,Queensland,2019,98
+1-14 years,Queensland,2020,93
+1-14 years,Queensland,2021,104
+1-14 years,Queensland,2022,119
+1-14 years,Queensland,2023,115
+15-24 years,Queensland,2014,251
+15-24 years,Queensland,2015,276
+15-24 years,Queensland,2016,252
+15-24 years,Queensland,2017,263
+15-24 years,Queensland,2018,284
+15-24 years,Queensland,2019,279
+15-24 years,Queensland,2020,284
+15-24 years,Queensland,2021,284
+15-24 years,Queensland,2022,252
+15-24 years,Queensland,2023,273
+25-34 years,Queensland,2014,414
+25-34 years,Queensland,2015,445
+25-34 years,Queensland,2016,422
+25-34 years,Queensland,2017,454
+25-34 years,Queensland,2018,442
+25-34 years,Queensland,2019,419
+25-34 years,Queensland,2020,459
+25-34 years,Queensland,2021,425
+25-34 years,Queensland,2022,412
+25-34 years,Queensland,2023,449
+35-44 years,Queensland,2014,709
+35-44 years,Queensland,2015,788
+35-44 years,Queensland,2016,759
+35-44 years,Queensland,2017,783
+35-44 years,Queensland,2018,734
+35-44 years,Queensland,2019,670
+35-44 years,Queensland,2020,749
+35-44 years,Queensland,2021,748
+35-44 years,Queensland,2022,788
+35-44 years,Queensland,2023,778
+45-54 years,Queensland,2014,1396
+45-54 years,Queensland,2015,1464
+45-54 years,Queensland,2016,1460
+45-54 years,Queensland,2017,1483
+45-54 years,Queensland,2018,1477
+45-54 years,Queensland,2019,1394
+45-54 years,Queensland,2020,1476
+45-54 years,Queensland,2021,1460
+45-54 years,Queensland,2022,1606
+45-54 years,Queensland,2023,1547
+55-64 years,Queensland,2014,2786
+55-64 years,Queensland,2015,2763
+55-64 years,Queensland,2016,2782
+55-64 years,Queensland,2017,2871
+55-64 years,Queensland,2018,2957
+55-64 years,Queensland,2019,3037
+55-64 years,Queensland,2020,2924
+55-64 years,Queensland,2021,3074
+55-64 years,Queensland,2022,3298
+55-64 years,Queensland,2023,3236
+65-74 years,Queensland,2014,4799
+65-74 years,Queensland,2015,4988
+65-74 years,Queensland,2016,5133
+65-74 years,Queensland,2017,5426
+65-74 years,Queensland,2018,5418
+65-74 years,Queensland,2019,5655
+65-74 years,Queensland,2020,5473
+65-74 years,Queensland,2021,5827
+65-74 years,Queensland,2022,6169
+65-74 years,Queensland,2023,6136
+75-84 years,Queensland,2014,7436
+75-84 years,Queensland,2015,7619
+75-84 years,Queensland,2016,7560
+75-84 years,Queensland,2017,8094
+75-84 years,Queensland,2018,7961
+75-84 years,Queensland,2019,8363
+75-84 years,Queensland,2020,8570
+75-84 years,Queensland,2021,9256
+75-84 years,Queensland,2022,10745
+75-84 years,Queensland,2023,10538
+85 years and over,Queensland,2014,10608
+85 years and over,Queensland,2015,11061
+85 years and over,Queensland,2016,11208
+85 years and over,Queensland,2017,11792
+85 years and over,Queensland,2018,11431
+85 years and over,Queensland,2019,11921
+85 years and over,Queensland,2020,11485
+85 years and over,Queensland,2021,12660
+85 years and over,Queensland,2022,14564
+85 years and over,Queensland,2023,13792
+All persons,Queensland,2014,28776
+All persons,Queensland,2015,29779
+All persons,Queensland,2016,29924
+All persons,Queensland,2017,31522
+All persons,Queensland,2018,31006
+All persons,Queensland,2019,32083
+All persons,Queensland,2020,31755
+All persons,Queensland,2021,34082
+All persons,Queensland,2022,38227
+All persons,Queensland,2023,37141
+Under 1 year,South Australia,2014,60
+Under 1 year,South Australia,2015,55
+Under 1 year,South Australia,2016,60
+Under 1 year,South Australia,2017,59
+Under 1 year,South Australia,2018,66
+Under 1 year,South Australia,2019,44
+Under 1 year,South Australia,2020,41
+Under 1 year,South Australia,2021,54
+Under 1 year,South Australia,2022,60
+Under 1 year,South Australia,2023,45
+1-14 years,South Australia,2014,30
+1-14 years,South Australia,2015,31
+1-14 years,South Australia,2016,31
+1-14 years,South Australia,2017,38
+1-14 years,South Australia,2018,31
+1-14 years,South Australia,2019,29
+1-14 years,South Australia,2020,23
+1-14 years,South Australia,2021,29
+1-14 years,South Australia,2022,30
+1-14 years,South Australia,2023,41
+15-24 years,South Australia,2014,74
+15-24 years,South Australia,2015,68
+15-24 years,South Australia,2016,64
+15-24 years,South Australia,2017,89
+15-24 years,South Australia,2018,72
+15-24 years,South Australia,2019,79
+15-24 years,South Australia,2020,84
+15-24 years,South Australia,2021,87
+15-24 years,South Australia,2022,78
+15-24 years,South Australia,2023,66
+25-34 years,South Australia,2014,135
+25-34 years,South Australia,2015,126
+25-34 years,South Australia,2016,145
+25-34 years,South Australia,2017,140
+25-34 years,South Australia,2018,130
+25-34 years,South Australia,2019,131
+25-34 years,South Australia,2020,133
+25-34 years,South Australia,2021,139
+25-34 years,South Australia,2022,147
+25-34 years,South Australia,2023,106
+35-44 years,South Australia,2014,275
+35-44 years,South Australia,2015,250
+35-44 years,South Australia,2016,246
+35-44 years,South Australia,2017,243
+35-44 years,South Australia,2018,205
+35-44 years,South Australia,2019,256
+35-44 years,South Australia,2020,234
+35-44 years,South Australia,2021,242
+35-44 years,South Australia,2022,253
+35-44 years,South Australia,2023,245
+45-54 years,South Australia,2014,564
+45-54 years,South Australia,2015,594
+45-54 years,South Australia,2016,567
+45-54 years,South Australia,2017,606
+45-54 years,South Australia,2018,557
+45-54 years,South Australia,2019,582
+45-54 years,South Australia,2020,549
+45-54 years,South Australia,2021,545
+45-54 years,South Australia,2022,517
+45-54 years,South Australia,2023,547
+55-64 years,South Australia,2014,1124
+55-64 years,South Australia,2015,1130
+55-64 years,South Australia,2016,1119
+55-64 years,South Australia,2017,1171
+55-64 years,South Australia,2018,1190
+55-64 years,South Australia,2019,1183
+55-64 years,South Australia,2020,1166
+55-64 years,South Australia,2021,1156
+55-64 years,South Australia,2022,1267
+55-64 years,South Australia,2023,1243
+65-74 years,South Australia,2014,1862
+65-74 years,South Australia,2015,1924
+65-74 years,South Australia,2016,1965
+65-74 years,South Australia,2017,2151
+65-74 years,South Australia,2018,2106
+65-74 years,South Australia,2019,2094
+65-74 years,South Australia,2020,2134
+65-74 years,South Australia,2021,2211
+65-74 years,South Australia,2022,2399
+65-74 years,South Australia,2023,2303
+75-84 years,South Australia,2014,3480
+75-84 years,South Australia,2015,3472
+75-84 years,South Australia,2016,3308
+75-84 years,South Australia,2017,3460
+75-84 years,South Australia,2018,3470
+75-84 years,South Australia,2019,3463
+75-84 years,South Australia,2020,3557
+75-84 years,South Australia,2021,3636
+75-84 years,South Australia,2022,4240
+75-84 years,South Australia,2023,4174
+85 years and over,South Australia,2014,5780
+85 years and over,South Australia,2015,5890
+85 years and over,South Australia,2016,5916
+85 years and over,South Australia,2017,6089
+85 years and over,South Australia,2018,5780
+85 years and over,South Australia,2019,6093
+85 years and over,South Australia,2020,5869
+85 years and over,South Australia,2021,6284
+85 years and over,South Australia,2022,6941
+85 years and over,South Australia,2023,6604
+All persons,South Australia,2014,13386
+All persons,South Australia,2015,13540
+All persons,South Australia,2016,13421
+All persons,South Australia,2017,14046
+All persons,South Australia,2018,13607
+All persons,South Australia,2019,13954
+All persons,South Australia,2020,13791
+All persons,South Australia,2021,14383
+All persons,South Australia,2022,15933
+All persons,South Australia,2023,15374
+Under 1 year,Tasmania,2014,31
+Under 1 year,Tasmania,2015,22
+Under 1 year,Tasmania,2016,26
+Under 1 year,Tasmania,2017,21
+Under 1 year,Tasmania,2018,22
+Under 1 year,Tasmania,2019,18
+Under 1 year,Tasmania,2020,20
+Under 1 year,Tasmania,2021,21
+Under 1 year,Tasmania,2022,15
+Under 1 year,Tasmania,2023,24
+1-14 years,Tasmania,2014,16
+1-14 years,Tasmania,2015,5
+1-14 years,Tasmania,2016,7
+1-14 years,Tasmania,2017,9
+1-14 years,Tasmania,2018,2
+1-14 years,Tasmania,2019,7
+1-14 years,Tasmania,2020,10
+1-14 years,Tasmania,2021,13
+1-14 years,Tasmania,2022,6
+1-14 years,Tasmania,2023,9
+15-24 years,Tasmania,2014,20
+15-24 years,Tasmania,2015,41
+15-24 years,Tasmania,2016,30
+15-24 years,Tasmania,2017,26
+15-24 years,Tasmania,2018,27
+15-24 years,Tasmania,2019,25
+15-24 years,Tasmania,2020,29
+15-24 years,Tasmania,2021,20
+15-24 years,Tasmania,2022,22
+15-24 years,Tasmania,2023,22
+25-34 years,Tasmania,2014,46
+25-34 years,Tasmania,2015,41
+25-34 years,Tasmania,2016,45
+25-34 years,Tasmania,2017,46
+25-34 years,Tasmania,2018,38
+25-34 years,Tasmania,2019,45
+25-34 years,Tasmania,2020,40
+25-34 years,Tasmania,2021,38
+25-34 years,Tasmania,2022,44
+25-34 years,Tasmania,2023,42
+35-44 years,Tasmania,2014,77
+35-44 years,Tasmania,2015,74
+35-44 years,Tasmania,2016,82
+35-44 years,Tasmania,2017,80
+35-44 years,Tasmania,2018,87
+35-44 years,Tasmania,2019,72
+35-44 years,Tasmania,2020,75
+35-44 years,Tasmania,2021,69
+35-44 years,Tasmania,2022,71
+35-44 years,Tasmania,2023,75
+45-54 years,Tasmania,2014,207
+45-54 years,Tasmania,2015,190
+45-54 years,Tasmania,2016,212
+45-54 years,Tasmania,2017,184
+45-54 years,Tasmania,2018,181
+45-54 years,Tasmania,2019,216
+45-54 years,Tasmania,2020,175
+45-54 years,Tasmania,2021,182
+45-54 years,Tasmania,2022,208
+45-54 years,Tasmania,2023,203
+55-64 years,Tasmania,2014,428
+55-64 years,Tasmania,2015,435
+55-64 years,Tasmania,2016,449
+55-64 years,Tasmania,2017,473
+55-64 years,Tasmania,2018,388
+55-64 years,Tasmania,2019,436
+55-64 years,Tasmania,2020,409
+55-64 years,Tasmania,2021,422
+55-64 years,Tasmania,2022,452
+55-64 years,Tasmania,2023,389
+65-74 years,Tasmania,2014,757
+65-74 years,Tasmania,2015,812
+65-74 years,Tasmania,2016,837
+65-74 years,Tasmania,2017,867
+65-74 years,Tasmania,2018,737
+65-74 years,Tasmania,2019,823
+65-74 years,Tasmania,2020,814
+65-74 years,Tasmania,2021,868
+65-74 years,Tasmania,2022,952
+65-74 years,Tasmania,2023,845
+75-84 years,Tasmania,2014,1254
+75-84 years,Tasmania,2015,1280
+75-84 years,Tasmania,2016,1240
+75-84 years,Tasmania,2017,1227
+75-84 years,Tasmania,2018,1164
+75-84 years,Tasmania,2019,1269
+75-84 years,Tasmania,2020,1187
+75-84 years,Tasmania,2021,1357
+75-84 years,Tasmania,2022,1449
+75-84 years,Tasmania,2023,1545
+85 years and over,Tasmania,2014,1618
+85 years and over,Tasmania,2015,1740
+85 years and over,Tasmania,2016,1659
+85 years and over,Tasmania,2017,1857
+85 years and over,Tasmania,2018,1639
+85 years and over,Tasmania,2019,1720
+85 years and over,Tasmania,2020,1665
+85 years and over,Tasmania,2021,1824
+85 years and over,Tasmania,2022,1930
+85 years and over,Tasmania,2023,1986
+All persons,Tasmania,2014,4456
+All persons,Tasmania,2015,4640
+All persons,Tasmania,2016,4588
+All persons,Tasmania,2017,4790
+All persons,Tasmania,2018,4287
+All persons,Tasmania,2019,4631
+All persons,Tasmania,2020,4424
+All persons,Tasmania,2021,4814
+All persons,Tasmania,2022,5149
+All persons,Tasmania,2023,5140
+Under 1 year,Victoria,2014,221
+Under 1 year,Victoria,2015,200
+Under 1 year,Victoria,2016,215
+Under 1 year,Victoria,2017,243
+Under 1 year,Victoria,2018,234
+Under 1 year,Victoria,2019,214
+Under 1 year,Victoria,2020,220
+Under 1 year,Victoria,2021,238
+Under 1 year,Victoria,2022,197
+Under 1 year,Victoria,2023,189
+1-14 years,Victoria,2014,95
+1-14 years,Victoria,2015,106
+1-14 years,Victoria,2016,86
+1-14 years,Victoria,2017,93
+1-14 years,Victoria,2018,74
+1-14 years,Victoria,2019,110
+1-14 years,Victoria,2020,80
+1-14 years,Victoria,2021,86
+1-14 years,Victoria,2022,111
+1-14 years,Victoria,2023,107
+15-24 years,Victoria,2014,220
+15-24 years,Victoria,2015,244
+15-24 years,Victoria,2016,276
+15-24 years,Victoria,2017,238
+15-24 years,Victoria,2018,234
+15-24 years,Victoria,2019,297
+15-24 years,Victoria,2020,246
+15-24 years,Victoria,2021,249
+15-24 years,Victoria,2022,262
+15-24 years,Victoria,2023,272
+25-34 years,Victoria,2014,453
+25-34 years,Victoria,2015,431
+25-34 years,Victoria,2016,498
+25-34 years,Victoria,2017,465
+25-34 years,Victoria,2018,453
+25-34 years,Victoria,2019,467
+25-34 years,Victoria,2020,507
+25-34 years,Victoria,2021,490
+25-34 years,Victoria,2022,505
+25-34 years,Victoria,2023,547
+35-44 years,Victoria,2014,794
+35-44 years,Victoria,2015,818
+35-44 years,Victoria,2016,872
+35-44 years,Victoria,2017,839
+35-44 years,Victoria,2018,800
+35-44 years,Victoria,2019,817
+35-44 years,Victoria,2020,767
+35-44 years,Victoria,2021,770
+35-44 years,Victoria,2022,847
+35-44 years,Victoria,2023,855
+45-54 years,Victoria,2014,1599
+45-54 years,Victoria,2015,1641
+45-54 years,Victoria,2016,1694
+45-54 years,Victoria,2017,1683
+45-54 years,Victoria,2018,1635
+45-54 years,Victoria,2019,1662
+45-54 years,Victoria,2020,1649
+45-54 years,Victoria,2021,1667
+45-54 years,Victoria,2022,1851
+45-54 years,Victoria,2023,1721
+55-64 years,Victoria,2014,3163
+55-64 years,Victoria,2015,3090
+55-64 years,Victoria,2016,3200
+55-64 years,Victoria,2017,3230
+55-64 years,Victoria,2018,3293
+55-64 years,Victoria,2019,3328
+55-64 years,Victoria,2020,3330
+55-64 years,Victoria,2021,3432
+55-64 years,Victoria,2022,3555
+55-64 years,Victoria,2023,3459
+65-74 years,Victoria,2014,5741
+65-74 years,Victoria,2015,5662
+65-74 years,Victoria,2016,5833
+65-74 years,Victoria,2017,6185
+65-74 years,Victoria,2018,6117
+65-74 years,Victoria,2019,6165
+65-74 years,Victoria,2020,6278
+65-74 years,Victoria,2021,6617
+65-74 years,Victoria,2022,7060
+65-74 years,Victoria,2023,6702
+75-84 years,Victoria,2014,10261
+75-84 years,Victoria,2015,10174
+75-84 years,Victoria,2016,10421
+75-84 years,Victoria,2017,10388
+75-84 years,Victoria,2018,9979
+75-84 years,Victoria,2019,10578
+75-84 years,Victoria,2020,10438
+75-84 years,Victoria,2021,11134
+75-84 years,Victoria,2022,12565
+75-84 years,Victoria,2023,12193
+85 years and over,Victoria,2014,16101
+85 years and over,Victoria,2015,16619
+85 years and over,Victoria,2016,16842
+85 years and over,Victoria,2017,17509
+85 years and over,Victoria,2018,17015
+85 years and over,Victoria,2019,17448
+85 years and over,Victoria,2020,17544
+85 years and over,Victoria,2021,18385
+85 years and over,Victoria,2022,20701
+85 years and over,Victoria,2023,18895
+All persons,Victoria,2014,38648
+All persons,Victoria,2015,38985
+All persons,Victoria,2016,39937
+All persons,Victoria,2017,40875
+All persons,Victoria,2018,39834
+All persons,Victoria,2019,41086
+All persons,Victoria,2020,41059
+All persons,Victoria,2021,43068
+All persons,Victoria,2022,47654
+All persons,Victoria,2023,44940
+Under 1 year,Western Australia,2014,86
+Under 1 year,Western Australia,2015,90
+Under 1 year,Western Australia,2016,115
+Under 1 year,Western Australia,2017,85
+Under 1 year,Western Australia,2018,89
+Under 1 year,Western Australia,2019,82
+Under 1 year,Western Australia,2020,76
+Under 1 year,Western Australia,2021,74
+Under 1 year,Western Australia,2022,94
+Under 1 year,Western Australia,2023,86
+1-14 years,Western Australia,2014,47
+1-14 years,Western Australia,2015,54
+1-14 years,Western Australia,2016,47
+1-14 years,Western Australia,2017,53
+1-14 years,Western Australia,2018,52
+1-14 years,Western Australia,2019,47
+1-14 years,Western Australia,2020,35
+1-14 years,Western Australia,2021,58
+1-14 years,Western Australia,2022,51
+1-14 years,Western Australia,2023,46
+15-24 years,Western Australia,2014,140
+15-24 years,Western Australia,2015,156
+15-24 years,Western Australia,2016,157
+15-24 years,Western Australia,2017,129
+15-24 years,Western Australia,2018,144
+15-24 years,Western Australia,2019,139
+15-24 years,Western Australia,2020,147
+15-24 years,Western Australia,2021,127
+15-24 years,Western Australia,2022,128
+15-24 years,Western Australia,2023,141
+25-34 years,Western Australia,2014,249
+25-34 years,Western Australia,2015,273
+25-34 years,Western Australia,2016,292
+25-34 years,Western Australia,2017,257
+25-34 years,Western Australia,2018,241
+25-34 years,Western Australia,2019,255
+25-34 years,Western Australia,2020,264
+25-34 years,Western Australia,2021,237
+25-34 years,Western Australia,2022,260
+25-34 years,Western Australia,2023,243
+35-44 years,Western Australia,2014,438
+35-44 years,Western Australia,2015,431
+35-44 years,Western Australia,2016,444
+35-44 years,Western Australia,2017,431
+35-44 years,Western Australia,2018,401
+35-44 years,Western Australia,2019,420
+35-44 years,Western Australia,2020,402
+35-44 years,Western Australia,2021,379
+35-44 years,Western Australia,2022,450
+35-44 years,Western Australia,2023,458
+45-54 years,Western Australia,2014,717
+45-54 years,Western Australia,2015,812
+45-54 years,Western Australia,2016,715
+45-54 years,Western Australia,2017,812
+45-54 years,Western Australia,2018,771
+45-54 years,Western Australia,2019,771
+45-54 years,Western Australia,2020,747
+45-54 years,Western Australia,2021,711
+45-54 years,Western Australia,2022,814
+45-54 years,Western Australia,2023,803
+55-64 years,Western Australia,2014,1301
+55-64 years,Western Australia,2015,1413
+55-64 years,Western Australia,2016,1356
+55-64 years,Western Australia,2017,1304
+55-64 years,Western Australia,2018,1434
+55-64 years,Western Australia,2019,1419
+55-64 years,Western Australia,2020,1397
+55-64 years,Western Australia,2021,1422
+55-64 years,Western Australia,2022,1518
+55-64 years,Western Australia,2023,1407
+65-74 years,Western Australia,2014,2217
+65-74 years,Western Australia,2015,2221
+65-74 years,Western Australia,2016,2316
+65-74 years,Western Australia,2017,2362
+65-74 years,Western Australia,2018,2359
+65-74 years,Western Australia,2019,2368
+65-74 years,Western Australia,2020,2516
+65-74 years,Western Australia,2021,2583
+65-74 years,Western Australia,2022,2759
+65-74 years,Western Australia,2023,2785
+75-84 years,Western Australia,2014,3511
+75-84 years,Western Australia,2015,3627
+75-84 years,Western Australia,2016,3716
+75-84 years,Western Australia,2017,3642
+75-84 years,Western Australia,2018,3689
+75-84 years,Western Australia,2019,3766
+75-84 years,Western Australia,2020,3750
+75-84 years,Western Australia,2021,4153
+75-84 years,Western Australia,2022,4543
+75-84 years,Western Australia,2023,4658
+85 years and over,Western Australia,2014,5024
+85 years and over,Western Australia,2015,5398
+85 years and over,Western Australia,2016,5786
+85 years and over,Western Australia,2017,5462
+85 years and over,Western Australia,2018,5463
+85 years and over,Western Australia,2019,5781
+85 years and over,Western Australia,2020,5734
+85 years and over,Western Australia,2021,6350
+85 years and over,Western Australia,2022,6840
+85 years and over,Western Australia,2023,6959
+All persons,Western Australia,2014,13730
+All persons,Western Australia,2015,14476
+All persons,Western Australia,2016,14944
+All persons,Western Australia,2017,14538
+All persons,Western Australia,2018,14645
+All persons,Western Australia,2019,15049
+All persons,Western Australia,2020,15069
+All persons,Western Australia,2021,16095
+All persons,Western Australia,2022,17457
+All persons,Western Australia,2023,17587

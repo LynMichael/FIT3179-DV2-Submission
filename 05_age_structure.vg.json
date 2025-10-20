@@ -1,0 +1,144 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": { "signal": "'Age Composition — ' + stateSel + ' (' + yearSel + ')'" },
+    "subtitle": "Distribution of deaths by age group · Switch view below",
+    "anchor": "start",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "offset": 8
+  },
+  "width": 800,
+  "height": 520,
+  "params": [
+    {
+      "name": "yearSel",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2014,
+        "max": 2023,
+        "step": 1,
+        "name": "Year: "
+      }
+    },
+    {
+      "name": "stateSel",
+      "value": "New South Wales",
+      "bind": {
+        "input": "select",
+        "name": "State: ",
+        "options": [
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "South Australia",
+          "Western Australia",
+          "Tasmania",
+          "Northern Territory",
+          "Australian Capital Territory"
+        ]
+      }
+    },
+    {
+      "name": "compSel",
+      "value": "Share",
+      "bind": { "input": "select", "name": "View: ", "options": ["Counts", "Share"] }
+    }
+  ],
+  "data": {
+    "url": "data/AUS_Deaths_ByState_Age_2014_2023.csv",
+    "format": { "type": "csv", "parse": { "Year": "number", "Deaths": "number" } }
+  },
+  "transform": [
+    { "calculate": "trim(datum.Age_group)", "as": "Age_group" },
+    { "filter": "datum.Year == yearSel && datum.Region == stateSel" },
+    { "filter": "datum.Age_group != 'All persons'" },
+    { "aggregate": [{ "op": "sum", "field": "Deaths", "as": "Deaths" }], "groupby": ["Age_group"] },
+    { "joinaggregate": [{ "op": "sum", "field": "Deaths", "as": "TotalDeaths" }] },
+    { "calculate": "datum.Deaths / datum.TotalDeaths", "as": "Share" },
+    { "calculate": "compSel == 'Counts' ? datum.Deaths : datum.Share", "as": "Value" }
+  ],
+  "layer": [
+    {
+      "mark": { "type": "bar", "cornerRadiusEnd": 3, "color": "#2563eb", "opacity": 0.85 },
+      "encoding": {
+        "y": {
+          "field": "Age_group",
+          "type": "nominal",
+          "sort": [
+            "Under 1 year",
+            "1-14 years",
+            "15-24 years",
+            "25-34 years",
+            "35-44 years",
+            "45-54 years",
+            "55-64 years",
+            "65-74 years",
+            "75-84 years",
+            "85 years and over"
+          ],
+          "title": null,
+          "axis": { "labelFontSize": 11 }
+        },
+        "x": {
+          "field": "Value",
+          "type": "quantitative",
+          "axis": {
+            "title": { "signal": "compSel == 'Counts' ? 'Number of Deaths' : 'Share of Total Deaths'" },
+            "format": { "signal": "compSel == 'Counts' ? '~s' : '.0%'" },
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+        "tooltip": [
+          { "field": "Age_group", "title": "Age group" },
+          { "field": "Deaths", "type": "quantitative", "format": ",", "title": "Deaths" },
+          { "field": "Share", "type": "quantitative", "format": ".1%", "title": "Share of state" },
+          { "expr": "yearSel", "title": "Year" },
+          { "expr": "stateSel", "title": "State" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "text", "align": "left", "baseline": "middle", "dx": 4, "fontSize": 11, "color": "#111827", "fontWeight": "bold" },
+      "encoding": {
+        "y": {
+          "field": "Age_group",
+          "type": "nominal",
+          "sort": [
+            "Under 1 year",
+            "1-14 years",
+            "15-24 years",
+            "25-34 years",
+            "35-44 years",
+            "45-54 years",
+            "55-64 years",
+            "65-74 years",
+            "75-84 years",
+            "85 years and over"
+          ]
+        },
+        "x": { "field": "Value", "type": "quantitative" },
+        "text": {
+          "condition": [
+            { "test": "compSel == 'Counts'", "field": "Deaths", "type": "quantitative", "format": "~s" },
+            { "test": "compSel == 'Share'", "field": "Share", "type": "quantitative", "format": ".0%" }
+          ],
+          "value": ""
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "axis": { "labelFontSize": 11, "titleFontSize": 12, "gridOpacity": 0.15 },
+    "title": {
+      "anchor": "start",
+      "offset": 5,
+      "subtitleColor": "#666",
+      "subtitleFontSize": 12,
+      "subtitlePadding": 3
+    }
+  }
+}

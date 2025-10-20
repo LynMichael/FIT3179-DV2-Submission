@@ -1,0 +1,140 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": { "signal": "'Deviation from National CDR — Diverging Bars (' + yearSel + ')'" },
+    "subtitle": "How far each state's CDR is above/below the national level",
+    "anchor": "start",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "offset": 8
+  },
+  "width": 900,
+  "height": 520,
+  "params": [
+    {
+      "name": "yearSel",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2014,
+        "max": 2023,
+        "step": 1,
+        "name": "Year: "
+      }
+    },
+    { "name": "ageSel", "value": "All persons" }
+  ],
+  "data": {
+    "url": "data/AUS_Deaths_ByState_Age_2014_2023.csv",
+    "format": { "type": "csv", "parse": { "Year": "number", "Deaths": "number" } }
+  },
+  "transform": [
+    { "calculate": "trim(datum.Age_group)", "as": "Age_group" },
+    { "filter": "datum.Age_group == ageSel && datum.Year == yearSel" },
+    { "aggregate": [{ "op": "sum", "field": "Deaths", "as": "Deaths" }], "groupby": ["Region"] },
+    {
+      "lookup": "Region",
+      "from": {
+        "data": {
+          "url": "data/AUS_Estimated_Resident_Population.csv",
+          "format": { "type": "csv", "parse": { "OVALUE": "number" } }
+        },
+        "key": "Region",
+        "fields": ["OVALUE"],
+        "transform": [
+          { "filter": "datum.Sex == 'Persons'" },
+          { "filter": "indexof(datum.TIME_PERIOD, '-Q2') > -1" },
+          { "calculate": "toNumber(substring(datum.TIME_PERIOD,0,4))", "as": "Year" },
+          { "filter": "datum.Year == yearSel" },
+          { "aggregate": [{ "op": "sum", "field": "OVALUE", "as": "OVALUE" }], "groupby": ["Region"] }
+        ]
+      },
+      "as": "ERP"
+    },
+    { "calculate": "datum.Deaths / datum.ERP * 100000", "as": "CDR" },
+    { "joinaggregate": [{ "op": "mean", "field": "CDR", "as": "NationalCDR" }] },
+    { "calculate": "datum.CDR - datum.NationalCDR", "as": "Deviation" }
+  ],
+  "layer": [
+    {
+      "mark": { "type": "rule", "strokeWidth": 2, "color": "#64748b" },
+      "encoding": {
+        "x": { "datum": 0 }
+      }
+    },
+    {
+      "mark": { "type": "bar" },
+      "encoding": {
+        "y": {
+          "field": "Region",
+          "type": "nominal",
+          "sort": { "field": "Deviation", "order": "descending" },
+          "axis": {
+            "title": null,
+            "labelFontSize": 11
+          }
+        },
+        "x": {
+          "field": "Deviation",
+          "type": "quantitative",
+          "axis": {
+            "title": "Deviation from National CDR (per 100,000)",
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.Deviation > 0",
+            "value": "#dc2626"
+          },
+          "value": "#2563eb"
+        },
+        "tooltip": [
+          { "field": "Region", "title": "State/Territory" },
+          { "field": "CDR", "type": "quantitative", "format": ".1f", "title": "State CDR" },
+          { "field": "NationalCDR", "type": "quantitative", "format": ".1f", "title": "National CDR" },
+          { "field": "Deviation", "type": "quantitative", "format": "+.1f", "title": "Deviation" },
+          { "expr": "yearSel", "title": "Year" }
+        ]
+      }
+    },
+    {
+  "mark": {
+    "type": "text",
+    "fontSize": 13,
+    "fontWeight": "bold",
+    "baseline": "middle",
+    "color": "black",
+    "stroke": "#0f172a",
+    "strokeWidth": 0.6,
+    "strokeOpacity": 0.45
+  },
+  "encoding": {
+    "y": { "field": "Region", "type": "nominal", "sort": { "field": "Deviation", "order": "descending" } },
+    "x": { "field": "Deviation", "type": "quantitative" },
+    "text": { "field": "Deviation", "type": "quantitative", "format": "+.0f" },
+    "align": {
+      "condition": { "test": "datum.Deviation > 0", "value": "right" },
+      "value": "left"
+    },
+    "dx": {
+      "condition": { "test": "datum.Deviation > 0", "value": 1 },
+      "value": -1
+    }
+  }
+}
+
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "axis": { "gridOpacity": 0.15 },
+    "title": {
+      "anchor": "start",
+      "offset": 5,
+      "subtitleColor": "#666",
+      "subtitleFontSize": 12,
+      "subtitlePadding": 3
+    }
+  }
+}
